@@ -1,0 +1,74 @@
+version: 1
+applications:
+  - appRoot: apps/web
+    env:
+      variables:
+        NODE_ENV: production
+    frontend:
+      buildPath: / # Run install and build from the monorepo project root
+      phases:
+        preBuild:
+          commands:
+            - npm ci
+            - npx turbo prune --scope=web --docker # Optimize dependencies for the `web` app
+            - npx turbo run build --filter=web # Run only `web`-related builds
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        files:
+            - '**/*'
+        discard-paths: yes
+        baseDirectory: apps/web/.next
+      cache:
+        paths:
+            - node_modules
+            - .next/cache
+  - appRoot: apps/admin
+    env:
+      variables:
+        NODE_ENV: production
+    frontend:
+      buildPath: / # Run install and build from the monorepo project root
+      phases:
+        preBuild:
+          commands:
+            - npm ci
+            - npx turbo prune --scope=admin --docker # Optimize dependencies for the `admin` app
+            - npx turbo run build --filter=admin # Run only `admin`-related builds
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        files:
+            - '**/*'
+        discard-paths: yes
+        baseDirectory: apps/admin/.next
+      cache:
+        paths:
+            - node_modules
+            - .next/cache
+  - appRoot: apps/server # NestJS backend app
+    env:
+      variables:
+        NODE_ENV: production
+    backend:
+      phases:
+        preBuild:
+          commands:
+            - npm ci
+            - npx turbo prune --scope=server --docker # Optimize dependencies for the `backend` app
+            - npx turbo run build --filter=server # Run only `backend`-related builds
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: dist # Assuming the NestJS app output is in the `dist` folder
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules
+          - dist/cache
+      start:
+        command: npm run start:prod # Command to start the NestJS backend in production mode

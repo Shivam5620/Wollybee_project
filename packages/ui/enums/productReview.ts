@@ -1,0 +1,5 @@
+export enum ProductReviewStatus {
+  APPROVAL_PENDING = 'APPROVAL_PENDING',
+  APPROVED = 'APPROVED',
+  REJECTED = 'REJECTED',
+}

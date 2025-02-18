@@ -1,0 +1,32 @@
+{
+  "name": "@repo/ui",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "exports": {
+    "./dto/*": "./dist/dto/*.js",
+    "./enums/*": "./dist/enums/*.js",
+    "./types/*": "./dist/types/*.js",
+    "./lib/*": "./dist/lib/*.js"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "lint": "eslint src/",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nestjs/swagger": "^7.3.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/tailwind-config": "*",
+    "@repo/typescript-config": "*",
+    "@types/eslint": "^8.44.7",
+    "@types/node": "^20.5.2",
+    "eslint": "^8.53.0",
+    "typescript": "^5.3.3"
+  }
+}

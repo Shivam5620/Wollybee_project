@@ -1,0 +1,299 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Hide scrollbar for WebKit browsers */
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+
+* {
+  scroll-behavior: smooth;
+}
+
+.svg-border {
+  background-image: url('/borders/primaryBorder.svg');
+  background-repeat: repeat-x; /* Repeat the SVG horizontally */
+  border: none; /* Optional: remove default border */
+  padding: 10px;
+}
+
+/* Hide scrollbar for Firefox */
+/* html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+} */
+
+.swiper-pagination-bullet {
+  display: none !important;
+  width: 17px !important;
+  height: 17px !important;
+  background-color: #00000060 !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #f7f7f7 !important;
+}
+
+@media screen and (max-width: 767px) {
+  .swiper-pagination-bullet {
+    display: inline-block !important;
+    width: 9px !important;
+    height: 9px !important;
+  }
+}
+
+/* Hide scrollbar for Internet Explorer and Edge */
+
+.filter-input:checked ~ div {
+  background-color: #ffc648; /* Change this color to your desired single color */
+  opacity: 0.9;
+}
+.filter-input:checked ~ div svg {
+  display: block;
+}
+
+.custom-shape-divider-top-1718605302 {
+  position: static;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1718605302 svg {
+  position: relative;
+  display: block;
+  width: calc(134% + 1.3px);
+  height: 174px;
+}
+
+.custom-shape-divider-top-1718605302 .shape-fill {
+  fill: #ffc648;
+}
+
+.stars-bg {
+  background-image: url('/backgrounds/ourStoryBgWithStars.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#bouncy-animation {
+  animation-name: slowBounce;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+#zoom-animation {
+  animation-name: zoomInOut;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-delay: 0.2s;
+}
+
+#cloudMoveRight {
+  animation-name: cloudMoveRight;
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+}
+#cloudMoveLeft {
+  animation-name: cloudMoveLeft;
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-delay: 0.2s;
+}
+
+@media (max-width: 767px) {
+  #cloudMoveRight {
+    animation-name: cloudMoveRightMobile;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+  }
+  #cloudMoveLeft {
+    animation-name: cloudMoveLeftMobile;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 0.2s;
+  }
+}
+
+@keyframes cloudMoveRightMobile {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(60px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes cloudMoveLeftMobile {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-60px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes cloudMoveRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes cloudMoveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slowBounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-top-1718605302 svg {
+    width: calc(134% + 1.3px);
+    height: 52px;
+  }
+
+  .stars-bg {
+    background-image: url('/backgrounds/ourStoryBgWithStarsMobile.svg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+}
+@layer base {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.slick-dots {
+  margin-bottom: 25px;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
